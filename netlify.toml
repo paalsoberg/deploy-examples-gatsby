@@ -5,3 +5,6 @@
   CONTENTFUL_SPACE_ID = ""
   CONTENTFUL_ACCESS_TOKEN = ""
   CONTENTFUL_PREVIEW_ACCESS_TOKEN = ""
+
+[functions]
+  directory = "functions"
