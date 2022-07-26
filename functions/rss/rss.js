@@ -85,9 +85,12 @@ function buildRssItems(items) {
       const title = item.title;
       const description = "this is the description";
       const link = item.slug;
+      const id = item.sys.id;
       
       return `
         <item>
+        <id></id>
+        <item_type>KLEVU_CMS</item_type>
         <title>${title}</title>
         <description>${description}</description>
         <link>${link}</link>
