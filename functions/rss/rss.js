@@ -82,19 +82,15 @@ function buildRssItems(items) {
 
   return items
     .map((item) => {
-      const hasText = item.title;
-      const hasLink = item.slug;
-      const titleMaybeTruncated = hasText && item.text.length > truncateLength ? "..." : "";
-      const title = hasText
-        ? `${item.text.slice(0, truncateLength)}${titleMaybeTruncated}`
-        : "New post";
-      const maybeLink = hasLink ? ` - ${item.link}` : "";
-      const description = hasText ? `${item.text}${maybeLink}` : "";
-
+      const title = item.title;
+      const description = "this is the description";
+      const link = item.slug;
+      
       return `
         <item>
         <title>${title}</title>
         <description>${description}</description>
+        <link>${link}</link>
         <author>paal.soberg@klevu.com (Klevu)</author>
         <link>https://elaborate-pegasus-69af84.netlify.app#${item.sys.id}</link>
         <guid>https://elaborate-pegasus-69af84.netlify.app#${item.sys.id}</guid>
