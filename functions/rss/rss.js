@@ -31,15 +31,16 @@ async function getPosts() {
   return new Promise((resolve, reject) => {
     const query = `
     query {
-      microblogCollection {
+      blogPost {
         items {
           sys {
             firstPublishedAt
             id
           }
-          text
-          link
-          linkText
+          title
+          slug
+          description
+          Tags
         }
       }
     }
@@ -83,8 +84,8 @@ function buildRssItems(items) {
 
   return items
     .map((item) => {
-      const hasText = item.text;
-      const hasLink = item.link;
+      const hasText = item.title;
+      const hasLink = item.slug;
       const titleMaybeTruncated = hasText && item.text.length > truncateLength ? "..." : "";
       const title = hasText
         ? `${item.text.slice(0, truncateLength)}${titleMaybeTruncated}`
