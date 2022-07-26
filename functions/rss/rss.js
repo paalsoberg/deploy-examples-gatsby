@@ -64,7 +64,7 @@ async function getPosts() {
 
       res.on("end", () => {
         const parsedPosts = JSON.parse(posts);
-        resolve(parsedPosts.data.blogPost.items);
+        resolve(parsedPosts.data.blogPostCollection.items);
       });
     });
 
