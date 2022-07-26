@@ -31,7 +31,7 @@ async function getPosts() {
   return new Promise((resolve, reject) => {
     const query = `
     query {
-      blogPost {
+      blogPostCollection {
         items {
           sys {
             firstPublishedAt
@@ -39,8 +39,6 @@ async function getPosts() {
           }
           title
           slug
-          description
-          Tags
         }
       }
     }
