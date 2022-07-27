@@ -83,7 +83,7 @@ function buildRssItems(items) {
   return items
     .map((item) => {
       const title = item.title;
-      const description = "this is the description";
+      const description = item.description.json.content;
       const link = item.slug;
       const id = item.sys.id;
       
