@@ -38,6 +38,9 @@ async function getPosts() {
             id
           }
           title
+          author {
+            name
+          }
           shortDescription
           description {
             json
@@ -90,6 +93,7 @@ function buildRssItems(items) {
       const description = item.description.json.content;
       const shortDescription = item.shortDescription;
       const link = item.slug;
+      const author = item.author.name
       const id = item.sys.id;
       
       return `
@@ -100,6 +104,14 @@ function buildRssItems(items) {
         <description>${shortDescription}</description>
         <link>https://elaborate-pegasus-69af84.netlify.app/blog/${link}</link>
         <published_at>${buildRFC822Date(item.sys.firstPublishedAt)}</published_at>
+        <attributes>
+          <attribute>
+              <id>author</id>
+              <values>
+                  <value>${author}</value>
+              </values>
+          </attribute>
+        </attributes>
         </item>
         `;
     })
