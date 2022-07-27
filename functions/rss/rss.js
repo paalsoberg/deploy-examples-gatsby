@@ -38,6 +38,10 @@ async function getPosts() {
             id
           }
           title
+          shortDescription
+          description {
+            json
+          }
           slug
         }
       }
@@ -84,6 +88,7 @@ function buildRssItems(items) {
     .map((item) => {
       const title = item.title;
       const description = item.description.json.content;
+      const shortDescription = item.shortDescription;
       const link = item.slug;
       const id = item.sys.id;
       
@@ -93,6 +98,7 @@ function buildRssItems(items) {
         <item_type>KLEVU_CMS</item_type>
         <title>${title}</title>
         <description>${description}</description>
+        <anotherfield>${shortDescription}</anotherfield>
         <link>https://elaborate-pegasus-69af84.netlify.app/blog/${link}</link>
         <published_at>${buildRFC822Date(item.sys.firstPublishedAt)}</published_at>
         </item>
