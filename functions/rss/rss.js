@@ -93,7 +93,7 @@ function buildRssItems(items) {
       const description = item.description.json.content;
       const shortDescription = item.shortDescription;
       const link = item.slug;
-      const author = item.author.name
+      const author = item.author.name;
       const id = item.sys.id;
       
       return `
