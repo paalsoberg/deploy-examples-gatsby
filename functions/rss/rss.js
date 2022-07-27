@@ -89,15 +89,12 @@ function buildRssItems(items) {
       
       return `
         <item>
-        <id></id>
+        <id>${id}</id>
         <item_type>KLEVU_CMS</item_type>
         <title>${title}</title>
         <description>${description}</description>
-        <link>${link}</link>
-        <author>paal.soberg@klevu.com (Klevu)</author>
-        <link>https://elaborate-pegasus-69af84.netlify.app#${item.sys.id}</link>
-        <guid>https://elaborate-pegasus-69af84.netlify.app#${item.sys.id}</guid>
-        <pubDate>${buildRFC822Date(item.sys.firstPublishedAt)}</pubDate>
+        <link>https://elaborate-pegasus-69af84.netlify.app/blog/${link}</link>
+        <published_at>${buildRFC822Date(item.sys.firstPublishedAt)}</published_at>
         </item>
         `;
     })
@@ -110,8 +107,8 @@ exports.handler = async function (event, context) {
   <channel>
     <title>Klevu Contentful XML test</title>
     <atom:link href="https://elaborate-pegasus-69af84.netlify.app/.netlify/functions/rss" rel="self" type="application/rss+xml" />
-    <link>https://thingoftheday.xyz</link>
-    <description>thingoftheday is a lightweight microblogging site powered by Contentful and vanilla HTML, CSS and JavaScript.</description>
+    <link>https://klevu.com</link>
+    <description>This is a sample feed for Contentful to send cms content to Klevu</description>
     ${buildRssItems(await getPosts())}
   </channel>
   </rss>`;
