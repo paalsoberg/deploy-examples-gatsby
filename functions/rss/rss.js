@@ -97,8 +97,7 @@ function buildRssItems(items) {
         <id>${id}</id>
         <item_type>KLEVU_CMS</item_type>
         <title>${title}</title>
-        <description>${description}</description>
-        <anotherfield>${shortDescription}</anotherfield>
+        <description>${shortDescription}</description>
         <link>https://elaborate-pegasus-69af84.netlify.app/blog/${link}</link>
         <published_at>${buildRFC822Date(item.sys.firstPublishedAt)}</published_at>
         </item>
